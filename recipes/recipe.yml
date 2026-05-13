@@ -12,16 +12,15 @@ modules:
       - source: system
         destination: / 
 
-  - type: dnf
+  - type: rpm-ostree
     repos:
-      files:    
-        - protonvpn.repo
-        - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
+      # Remote URLs and local files (from files/rpm-ostree/) can be mixed here
+      - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
+      - protonvpn.repo
     install:
-      packages:
-        - brave-origin-beta
-        - proton-vpn-gnome-desktop
-        - https://updates.safing.io/latest/linux_amd64/packages/Portmaster-2.1.18-1.x86_64.rpm
+      - brave-browser-beta
+      - proton-vpn-gnome-desktop
+      - https://updates.safing.io/latest/linux_amd64/packages/Portmaster-2.1.18-1.x86_64.rpm
 
   - type: default-flatpaks
     configurations:
