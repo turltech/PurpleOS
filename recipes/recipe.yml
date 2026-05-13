@@ -14,10 +14,9 @@ modules:
 
   - type: dnf
     repos:
-      urls:
-        - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
-      files:
+      files:    
         - protonvpn.repo
+        - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
     install:
       packages:
         - brave-origin-beta
