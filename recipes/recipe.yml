@@ -19,11 +19,14 @@ modules:
 
   - type: dnf
     repos:
-      copr:
-
+      files:
+        - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
+        - protonvpn.repo
     install:
       packages:
-        - Portmaster-2.1.18-1.x86_64.rpm
+        - brave-origin-beta
+        - proton-vpn-gnome-desktop
+        - https://updates.safing.io/latest/linux_amd64/packages/Portmaster-2.1.18-1.x86_64.rpm
 
     remove:
       packages:
