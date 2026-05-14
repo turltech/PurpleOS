@@ -38,5 +38,6 @@ modules:
       enabled:
         # This guarantees Portmaster starts automatically on boot
         - portmaster.service
+        - me.proton.vpn.split_tunneling.service
 
   - type: signing 
