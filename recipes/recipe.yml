@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: purpleos
-description: This is my personal OS image.
+description: Custom Bluefin-DX image.
 
 base-image: ghcr.io/ublue-os/bluefin-dx
 image-version: stable-daily 
@@ -16,18 +16,27 @@ modules:
     repos:
       # Remote URLs and local files (from files/rpm-ostree/) can be mixed here
       - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
+      - https://packages.freedom.press/yum-tools-prod/dangerzone/dangerzone.repo
       - protonvpn.repo
     install:
-      - brave-browser-beta
+      - brave-origin-beta
       - proton-vpn-gnome-desktop
       - https://updates.safing.io/latest/linux_amd64/packages/Portmaster-2.1.18-1.x86_64.rpm
+      - dangerzone
+    remove:
+      - tailscale
 
   - type: default-flatpaks
     configurations:
       - notify: true 
-        scope: user
+        scope: system
         install: 
-          - org.signal.Signal
-          - io.freetubeapp.FreeTube
+          - org.videolan.VLC
+  
+  - type: systemd
+    system:
+      enabled:
+        # This guarantees Portmaster starts automatically on boot
+        - portmaster.service
 
   - type: signing 
