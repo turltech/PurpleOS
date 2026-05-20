@@ -34,8 +34,9 @@ modules:
           - org.videolan.VLC
   
   - type: justfiles
-  include:
-    - install-my-flatpaks.just
+    include:
+      - install-my-flatpaks.just
+      - setup-stirling-pdf.just
     
   - type: systemd
     system:
