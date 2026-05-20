@@ -33,6 +33,10 @@ modules:
         install: 
           - org.videolan.VLC
   
+  - type: justfiles
+  include:
+    - install-my-flatpaks.just
+    
   - type: systemd
     system:
       enabled:
